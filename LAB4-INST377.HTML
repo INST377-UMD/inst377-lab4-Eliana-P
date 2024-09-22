@@ -1,0 +1,85 @@
+<HTML>
+    <head>
+        <title>INST377-LAB 4</title>
+        <link rel ="stylesheet" href="LAB4-INST33.css">
+    </head>
+
+    <BODY>
+        <h1 id="header">INST377-Lab 4</h1>
+        <!--Change Color Section-->
+    <div class="section">
+        <button onclick="changeColor()">CHANGE COLOR</button>
+     </div>
+        <script> type="text/javascript"
+            function changeColor(){
+                const body = document.body;
+            if (body.style.backgroundColor !== 'green'){
+                body.style.backgroundColor = 'green';
+            } else {
+                body.style.backgroundColor = 'rgb(175, 221, 244)'
+            }
+        }
+        </script>
+
+
+        <!--Text Tester Section-->
+    <div class="section">
+        <form name="contactForm" onsubmit="return(formValidation())">
+            <label>Text Tester</label>
+            <input type="text" id="validateText">
+            <input type="submit" value="Validate Text">
+        </form>
+    </div>
+
+        <script type="text/javascript">
+            function formValidation() {
+                const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                const inputText = document.getElementById('validateText').value;
+
+                if(inputText=== "") {
+                    alert('Please enter some text!');
+                    return false;
+                }
+                if (validationRegex.test(inputText)) {
+                    alert('This text includes special characters. Try again:(')
+                    return false
+                }
+                alert('Text is valid');
+                return true;
+            }
+        </script>
+
+
+        <!--Alert Me Section-->
+    <div class="section">
+        <form name="alertForm" onsubmit="return(alertValidation())">
+        <label>Name:</label>
+        <input type="text" id="nameInput" required>
+        <input type="Submit" value="Alert Me!">
+        </form>
+    </div>
+        <script> type="text/javascript"
+            function alertValidation() {
+                const inputText = document.getElementById('nameInput').value;
+                alert(`Hi ${inputText}!`)
+                return false;
+            }
+        </script>
+
+
+        <!--Add Text Section-->
+    <div class="Section">
+        <button onclick="addText()">Add Text</button>
+    </div>
+        <script> type="text/javascript"
+            function addText(){
+                const heading = document.getElementById('header');
+                if(!heading.textContent.includes(' Add Text')){
+                    heading.textContent += ' Add Text';
+                } 
+            }
+        </script>
+
+    </BODY>
+</HTML>
+
